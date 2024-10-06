@@ -1,0 +1,49 @@
+@if (isApplicationOpen) {
+<div>
+  <!-- Offcanvas Menu -->
+  <div
+    class="fixed top-24 left-40 none w-64 h-full bg-white transform transition-transform duration-300"
+    [ngClass]="{
+      'translate-x-full': !isApplicationOpen,
+      'translate-x-0': isApplicationOpen
+    }"
+  >
+    <div class="flex flex-col gap-y-7">
+      <div class="flex flex-col gap-y-3">
+        <h1 [style]="'color: ' + Color" class="font-bold text-sm">
+          Static Apps
+        </h1>
+        <button class="w-24 hover:bg-[#aaa] rounded-xl">Todo</button>
+        <button class="w-24 hover:bg-[#aaa] rounded-xl">Contact</button>
+        <button class="w-24 hover:bg-[#aaa] rounded-xl">Email</button>
+      </div>
+      <!-- ///////////////////////// -->
+      <div class="flex flex-col gap-y-3">
+        <h1 [style]="'color: ' + Color" class="font-bold text-sm">
+          FireBase Apps
+        </h1>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">Todo Firebase</button>
+        <button class="w-32 hover:bg-[#aaa] rounded-xl">
+          Contact Firebase
+        </button>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">Email Firebase</button>
+      </div>
+      <!-- ///////////////////////// -->
+      <div class="flex flex-col gap-y-3">
+        <h1 [style]="'color: ' + Color" class="font-bold text-sm">Mabs</h1>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">Map Marker</button>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">Map Direction</button>
+        <button class="w-32 hover:bg-[#aaa] rounded-xl">
+          Map with Search..
+        </button>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">
+          Traffic Indicator
+        </button>
+        <button class="w-28 hover:bg-[#aaa] rounded-xl">Street View</button>
+      </div>
+      <!-- ///////////////////////// -->
+    </div>
+  </div>
+</div>
+
+}

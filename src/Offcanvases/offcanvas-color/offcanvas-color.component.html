@@ -1,0 +1,79 @@
+<div>
+  <!-- Offcanvas Menu -->
+  <div
+    class="fixed top-0 right-0 none w-96 h-full bg-white transform transition-transform duration-300 shadow-lg shadow-black"
+    [ngClass]="{
+      'translate-x-full': !isMenuOpen,
+      'translate-x-0': isMenuOpen
+    }"
+  >
+    <div class="fixed top-1/3 right-96">
+      <button
+        class="px-4 py-2 w-[4pc] rounded-tl-[2pc] rounded-bl-[2pc] text-white rounded-lg hover:bg-blue-700"
+        [style]="'background-color:' + backGroundColor"
+        (click)="toggleMenu()"
+      >
+        <div><img src="close.png" alt="close.png" class="w-14" /></div>
+      </button>
+    </div>
+    <div class="font-bold text-center my-3 none">Templates Settings</div>
+    <div class="p-4 m-4 text-white border shadow-lg">
+      <h2 class="text-xl font-bold flex items-center">
+        <img src="color-palette.png" alt="color.png" class="w-5 h-5" />
+        <span class="text-black">Theme Color</span>
+      </h2>
+      <ul class="grid grid-cols-3 gap-7 mx-10 my-10" id="ul">
+        <li
+          class="w-20 h-24 bg-red-500 rounded-xl cursor-pointer"
+          data-color="red"
+        ></li>
+        <li
+          class="w-20 h-24 bg-orange-500 rounded-xl cursor-pointer"
+          data-color="orange"
+        ></li>
+        <li
+          class="w-20 h-24 bg-amber-800 rounded-xl cursor-pointer"
+          data-color="brown"
+        ></li>
+        <li
+          class="w-20 h-24 bg-teal-500 rounded-xl cursor-pointer"
+          data-color="teal"
+        ></li>
+        <li
+          class="w-20 h-24 bg-violet-500 rounded-xl cursor-pointer"
+          data-color="violet"
+        ></li>
+        <li
+          class="w-20 h-24 bg-purple-500 rounded-xl cursor-pointer"
+          data-color="purple"
+        ></li>
+        <li
+          class="w-20 h-24 bg-gray-500 rounded-xl cursor-pointer"
+          data-color="gray"
+        ></li>
+        <li
+          class="w-20 h-24 bg-green-500 rounded-xl cursor-pointer"
+          data-color="green"
+        ></li>
+        <li
+          class="w-20 h-24 bg-blue-500 rounded-xl cursor-pointer"
+          data-color="blue"
+        ></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div
+    class="fixed right-0 top-1/3"
+    [style]="isMenuOpen ? 'display: none' : ''"
+  >
+    <button
+      class="px-4 py-2 w-[4pc] rounded-tl-[2pc] rounded-bl-[2pc] text-white rounded-lg hover:bg-blue-700"
+      [style]="'background-color:' + backGroundColor"
+      (click)="toggleMenu()"
+    >
+      <div><img src="color-palette.png" alt="color.png" class="w-14" /></div>
+    </button>
+  </div>
+</div>
