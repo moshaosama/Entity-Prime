@@ -1,32 +1,38 @@
 import { Component, inject } from '@angular/core';
-import { Sidbar } from '../interfaces';
-import { ListsService } from '../Services/lists-service.service';
+import { SidebarComponent } from '../../sidebar/sidebar.component';
+import { OffcanvasService } from '../../Services/offcanvas.service';
 import { CommonModule } from '@angular/common';
-import { OffcanvasService } from '../Services/offcanvas.service';
-import { OffcanvasHomeComponent } from '../Offcanvases/offcanvas-home/offcanvas-home.component';
-import { OffcanvasApplicationComponent } from '../Offcanvases/offcanvas-application/offcanvas-application.component';
-import { RouterOutlet } from '@angular/router';
-import { OffcanvasResponsiveComponent } from "../Offcanvases/offcanvas-responsive/offcanvas-responsive.component";
+import { ListsService } from '../../Services/lists-service.service';
+import { Sidbar } from '../../interfaces';
+import { OffcanvasHomeComponent } from '../offcanvas-home/offcanvas-home.component';
+import { OffcanvasApplicationComponent } from '../offcanvas-application/offcanvas-application.component';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-offcanvas-responsive',
   standalone: true,
   imports: [
+    SidebarComponent,
     CommonModule,
     OffcanvasHomeComponent,
     OffcanvasApplicationComponent,
-    RouterOutlet,
-    OffcanvasResponsiveComponent
-],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css',
+  ],
+  templateUrl: './offcanvas-responsive.component.html',
+  styleUrl: './offcanvas-responsive.component.css',
 })
-export class SidebarComponent {
-  activatedButton!: number;
-  listService = inject(ListsService);
+export class OffcanvasResponsiveComponent {
   offcanvasService = inject(OffcanvasService);
-  constructor() {
-    console.log(this.offcanvasService.isHomeOpen);
+  listService = inject(ListsService);
+  activatedButton!: number;
+  ResponsiveOpen() {
+    this.offcanvasService.ResponsiveOpen();
+  }
+
+  get Color() {
+    return this.listService.backgroundColor;
+  }
+
+  get isResponsiveOpen() {
+    return this.offcanvasService.isResponsiveOpen;
   }
   HomeOpen() {
     this.offcanvasService.HomeOpen();
@@ -35,10 +41,6 @@ export class SidebarComponent {
   applicationOpen() {
     this.offcanvasService.ApplicationOpen();
     this.offcanvasService.isHomeOpen = false;
-  }
-
-  get Color() {
-    return this.listService.backgroundColor;
   }
   onCLick(button: number) {
     this.activatedButton = button;

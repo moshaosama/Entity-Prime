@@ -1,5 +1,5 @@
-<div class="mx-14">
-  <div class="flex flex-col gap-y-6">
+<div class="mx-14 flex">
+  <div class="flex flex-col gap-y-6 max-xl:hidden">
     <img src="avatar.png" alt="avatar.png" class="w-7" />
     @for (sidebar of Sidebar; track sidebar.id) {
     <div
@@ -16,9 +16,14 @@
       </p>
     </div>
     }
+    <div>
+      <app-offcanvas-home />
+      <app-offcanvas-application />
+    </div>
   </div>
-  <div>
-    <app-offcanvas-home />
-    <app-offcanvas-application />
+  <div
+    class="mx-48 max-xl:-mx-10 max-lg:w-[40pc] max-md:w-[30pc] max-sm:w-[20pc] transition-all duration-200"
+  >
+    <router-outlet />
   </div>
 </div>

@@ -2,7 +2,7 @@
 <div>
   <!-- Offcanvas Menu -->
   <div
-    class="absolute top-24 left-40 none w-64 h-fit bg-white transform transition-transform duration-300"
+    class="absolute top-24 left-40 none w-[6pc] h-fit bg-white transform transition-transform duration-300"
     [ngClass]="{
       'translate-x-full': !isApplicationOpen,
       'translate-x-0': isApplicationOpen
@@ -13,7 +13,12 @@
         <h1 [style]="'color: ' + Color" class="font-bold text-sm">
           Static Apps
         </h1>
-        <button class="w-24 hover:bg-[#aaa] rounded-xl">Todo</button>
+        <button
+          class="w-24 hover:bg-[#aaa] rounded-xl"
+          routerLink="/Application/todo"
+        >
+          Todo
+        </button>
         <button class="w-24 hover:bg-[#aaa] rounded-xl">Contact</button>
         <button class="w-24 hover:bg-[#aaa] rounded-xl">Email</button>
       </div>

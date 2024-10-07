@@ -15,4 +15,8 @@ export class OffcanvasService {
     this.isApplicationsOpen = !this.isApplicationsOpen;
   }
   //////////////////////////////////
+  isResponsiveOpen = false;
+  ResponsiveOpen() {
+    this.isResponsiveOpen = !this.isResponsiveOpen;
+  }
 }

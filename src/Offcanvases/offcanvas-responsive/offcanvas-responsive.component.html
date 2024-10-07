@@ -1,0 +1,40 @@
+<div>
+  <!-- Offcanvas Menu -->
+  <div
+    class="fixed top-0 left-0 none w-96 h-full bg-white transform transition-transform duration-300 shadow-lg shadow-black"
+    [ngClass]="{
+      'translate-x-full': !isResponsiveOpen,
+      'translate-x-0': isResponsiveOpen
+    }"
+  >
+    <div class="flex justify-around items-center">
+      <div class="font-bold text-center my-3 none">
+        <button (click)="ResponsiveOpen()">
+          <div><img src="close.png" alt="close.png" class="w-6" /></div>
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-col gap-y-6 p-10">
+      <img src="avatar.png" alt="avatar.png" class="w-7" />
+      @for (sidebar of Sidebar; track sidebar.id) {
+      <div
+        class="cursor-pointer my-1 w-fit flex flex-col"
+        (click)="onCLick(sidebar.id)"
+        (click)="sidebar.EventHandler()"
+      >
+        <img [src]="sidebar.image" alt="home.png" class="w-7" />
+        <p
+          class="font-bold text-sm text-[#aaa]"
+          [class.active]="activatedButton === sidebar.id"
+        >
+          {{ sidebar.title }}
+        </p>
+      </div>
+      }
+      <div>
+        <app-offcanvas-home />
+        <app-offcanvas-application />
+      </div>
+    </div>
+  </div>
+</div>

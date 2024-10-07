@@ -1,15 +1,23 @@
 <div class="flex justify-between items-center">
-  <div class="flex items-center gap-14 mx-14 my-5">
+  <div class="flex items-center gap-14 mx-14 max-md:mx-0 my-5">
     <div
       class="hover:bg-[#aaa] transition-all duration-150 w-7 h-5 flex justify-center rounded-xl"
     >
-      <img src="side-menu.png" alt="sideMenu.png" class="w-5 cursor-pointer" />
+      <img
+        src="side-menu.png"
+        alt="sideMenu.png"
+        class="w-5 cursor-pointer"
+        (click)="ResponsiveOpen()"
+      />
     </div>
-    <div class="flex items-center gap-4">
+    @if (isResponsiveOpen) {
+    <app-offcanvas-responsive />
+    }
+    <div class="flex items-center gap-4 max-md:hidden">
       <img src="icons8-amazon-prime-48.png" alt="Prime.png" />
       <p class="font-bold">Prime</p>
     </div>
-    <div class="flex gap-8">
+    <div class="flex gap-8 max-xl:hidden">
       <img
         src="expand.png"
         alt="expand.png"
@@ -27,8 +35,8 @@
       />
     </div>
   </div>
-  <div class="flex gap-7 mx-14">
-    <div>
+  <div class="flex gap-7 max-md:gap-4 mx-14 max-md:mx-3">
+    <div class="max-sm:hidden">
       <form>
         <input
           type="text"
@@ -42,10 +50,17 @@
     </div>
     <div>
       <button
-        class="w-32 h-10 rounded-lg font-bold text-white hover:shadow-md hover:shadow-[#aaa] transition-all duration-100"
+        class="w-32 h-10 rounded-lg font-bold text-white hover:shadow-md hover:shadow-[#aaa] transition-all duration-100 max-md:hidden"
         [style]="'background-color:' + Color"
       >
         Login
+        <!-- <img src="user-interface.png" alt="" class="w-2" /> -->
+      </button>
+      <button
+        class="hidden w-14 h-10 rounded-lg font-bold text-white hover:shadow-md hover:shadow-[#aaa] transition-all duration-100 max-md:flex max-md:justify-center max-md:items-center"
+        [style]="'background-color:' + Color"
+      >
+        <img src="avatar.png" alt="avatar.png" class="w-4" />
         <!-- <img src="user-interface.png" alt="" class="w-2" /> -->
       </button>
     </div>

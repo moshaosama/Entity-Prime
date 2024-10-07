@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { OffcanvasService } from '../../Services/offcanvas.service';
 import { ListsService } from '../../Services/lists-service.service';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-offcanvas-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, RouterLink],
   templateUrl: './offcanvas-home.component.html',
   styleUrl: './offcanvas-home.component.css',
 })

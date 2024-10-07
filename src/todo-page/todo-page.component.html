@@ -1,0 +1,56 @@
+<div>
+  <div class="flex items-center gap-5">
+    <h1 [style]="'color:' + Color" class="font-bold text-2xl">Todo</h1>
+    <p class="text-sm text-[#aaa]">You are Here: Application / todo</p>
+  </div>
+  <!-- ///////////////////////////// -->
+  <div [style.backgroundColor]="Color" class="my-10 rounded-lg p-5">
+    <div class="flex items-center gap-7">
+      <div>
+        <img src="to-do-list.png" alt="todo.png" class="w-10" />
+      </div>
+      <div>
+        <h1 class="font-bold text-xl">To Do Apps</h1>
+        <p class="text-[#aaa]">
+          󠁥󠁮󠁧󠁿All Your to do list. Just check it whenever You done.
+        </p>
+      </div>
+      <!-- ///////////////////////////////// -->
+    </div>
+    <div class="my-10 px-5">
+      <form [formGroup]="form" (submit)="onSubmit(form.controls.title.value!)">
+        <input
+          type="text"
+          placeholder="What needs to be done?"
+          name="title"
+          formControlName="title"
+          class="h-24 w-[50pc] rounded-lg font-bold text-lg px-3 max-lg:w-[35pc] max-md:w-[25pc] max-sm:w-[15pc]"
+        />
+      </form>
+    </div>
+    @for (todo of Todo; track todo._id) {
+    <div class="bg-white my-5 h-12 flex justify-between items-center px-3">
+      <div class="flex items-center gap-3">
+        <img
+          src="check-mark.png"
+          alt="checkMark.png"
+          class="w-5 bg-[#eee] hover:bg-[#aaa] cursor-pointer rounded-full"
+        />
+        <h1 class="font-bold">{{ todo.title }}</h1>
+      </div>
+      <div class="flex items-center gap-5">
+        <img
+          src="delete.png"
+          alt="delete.png"
+          class="w-5 bg-[#eee] hover:bg-[#aaa] cursor-pointer rounded-full"
+        />
+        <img
+          src="edit (1).png"
+          alt="delete.png"
+          class="w-5 bg-[#eee] hover:bg-[#aaa] cursor-pointer rounded-full"
+        />
+      </div>
+    </div>
+    }
+  </div>
+</div>
