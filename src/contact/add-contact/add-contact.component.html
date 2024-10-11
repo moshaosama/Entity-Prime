@@ -1,0 +1,125 @@
+@if (isAddContact) {
+<div
+  class="fixed bottom-0 right-0 bg-[#eee] w-[30pc] h-[35pc] p-5 rounded-lg border-solid border-[5px] overflow-y-scroll"
+  [style]="'border-color: ' + Color"
+>
+  <div
+    class="fixed w-[28pc] rounded p-3 -my-5 -mx-5 bg-white flex justify-between items-center"
+  >
+    <div>
+      <h1 [style]="'color:' + Color" class="font-bold text-2xl">
+        Add a new Contact
+      </h1>
+    </div>
+    <div>
+      <img
+        src="close.png"
+        alt="close.png"
+        class="w-10 cursor-pointer"
+        (click)="AddContact()"
+      />
+    </div>
+  </div>
+  <div class="my-16">
+    <h1>Upload Image</h1>
+  </div>
+  <form class="my-10" [formGroup]="form" (submit)="onSubmit()">
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Name"
+        formControlName="Name"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Title"
+        formControlName="Title"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Image"
+        formControlName="Image"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Phone"
+        formControlName="Phone"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Secondary Phone"
+        formControlName="Secondary_Phone"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Personal Email"
+        formControlName="Personal_Email"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Company Email"
+        formControlName="Company_Email"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Address"
+        formControlName="Address"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+    <p class="my-5">
+      <input
+        type="text"
+        placeholder="Website"
+        formControlName="Website"
+        class="h-10 w-full rounded-lg border-solid border-[2px] px-2"
+        [style]="'border-color: ' + Color"
+      />
+    </p>
+
+    <div class="fixed bottom-0">
+      <button class="w-16 rounded h-10" [style]="'backgroundColor:' + Color">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+} @if (!isAddContact) {
+<div
+  class="fixed bottom-10 right-10 rounded-full w-10 h-10 flex justify-center items-center cursor-pointer hover:bg-[#aaa]"
+  [style]="'backgroundColor:' + Color"
+  (click)="AddContact()"
+>
+  <button class="font-bold text-2xl">+</button>
+</div>
+
+}

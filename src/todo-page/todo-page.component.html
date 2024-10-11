@@ -24,7 +24,7 @@
           placeholder="What needs to be done?"
           name="title"
           formControlName="title"
-          class="h-24 w-[50pc] rounded-lg font-bold text-lg px-3 max-lg:w-[35pc] max-md:w-[25pc] max-sm:w-[15pc]"
+          class="h-24 w-full rounded-lg font-bold text-lg px-3 max-lg:w-[35pc] max-md:w-[25pc] max-sm:w-[15pc]"
         />
       </form>
     </div>
@@ -43,6 +43,7 @@
           src="delete.png"
           alt="delete.png"
           class="w-5 bg-[#eee] hover:bg-[#aaa] cursor-pointer rounded-full"
+          (click)="deletedToDO(todo._id)"
         />
         <img
           src="edit (1).png"

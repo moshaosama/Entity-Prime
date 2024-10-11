@@ -27,4 +27,7 @@ export class TodoPageComponent {
   get Color() {
     return this.listService.backgroundColor;
   }
+  deletedToDO(id: string) {
+    this.toDoService.deleteToDo(id);
+  }
 }

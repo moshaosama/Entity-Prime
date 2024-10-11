@@ -35,7 +35,6 @@ export class OffcanvasResponsiveComponent {
     return this.offcanvasService.isResponsiveOpen;
   }
   HomeOpen() {
-    this.offcanvasService.HomeOpen();
     this.offcanvasService.isApplicationsOpen = false;
   }
   applicationOpen() {

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class OffcanvasService {
-  isHomeOpen = false;
+  isHomeOpen = true;
   HomeOpen() {
     this.isHomeOpen = !this.isHomeOpen;
     console.log('Mosha');

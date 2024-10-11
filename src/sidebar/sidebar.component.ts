@@ -6,7 +6,7 @@ import { OffcanvasService } from '../Services/offcanvas.service';
 import { OffcanvasHomeComponent } from '../Offcanvases/offcanvas-home/offcanvas-home.component';
 import { OffcanvasApplicationComponent } from '../Offcanvases/offcanvas-application/offcanvas-application.component';
 import { RouterOutlet } from '@angular/router';
-import { OffcanvasResponsiveComponent } from "../Offcanvases/offcanvas-responsive/offcanvas-responsive.component";
+import { OffcanvasResponsiveComponent } from '../Offcanvases/offcanvas-responsive/offcanvas-responsive.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,8 +16,8 @@ import { OffcanvasResponsiveComponent } from "../Offcanvases/offcanvas-responsiv
     OffcanvasHomeComponent,
     OffcanvasApplicationComponent,
     RouterOutlet,
-    OffcanvasResponsiveComponent
-],
+    OffcanvasResponsiveComponent,
+  ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })

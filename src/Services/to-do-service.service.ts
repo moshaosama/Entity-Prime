@@ -32,4 +32,12 @@ export class ToDoService {
   get TODO() {
     return this.ToDo;
   }
+
+  deleteToDo(id: string) {
+    this.HttpClient.delete(`http://localhost:3000/todo/${id}`).subscribe({
+      next: () => {
+        this.ToDo = this.ToDo.filter((todo) => todo._id !== id);
+      },
+    });
+  }
 }

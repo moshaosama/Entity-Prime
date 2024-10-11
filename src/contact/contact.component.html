@@ -1,0 +1,180 @@
+<div>
+  <div class="flex items-center gap-5">
+    <h1 [style]="'color:' + Color" class="font-bold text-2xl">Contact</h1>
+    <p class="text-sm text-[#aaa]">You are Here: Application / contact</p>
+  </div>
+  <div [style.backgroundColor]="Color" class="my-10 rounded-lg p-5">
+    <div class="flex">
+      <div class="overflow-y-scroll h-[34pc] w-[21pc]">
+        <div class="flex items-center gap-3">
+          <form>
+            <input
+              type="text"
+              placeholder="Search"
+              class="px-2 rounded-lg h-10"
+            />
+          </form>
+          <h1
+            class="text-white font-bold text-2xl cursor-pointer"
+            (click)="AddContact()"
+          >
+            +
+          </h1>
+        </div>
+        <div class="text-center">
+          <p class="text-[#aaa] font-semibold">{{ ContactLength }} Contacts</p>
+        </div>
+        @for (Contacts of Contact; track Contacts.Personal_Email) {
+        <div class="my-10" (click)="setActive(Contacts._id)">
+          <div
+            class="flex items-center gap-4 cursor-pointer hover:bg-[#aaa] transition-all duration-200 rounded-lg px-2 my-3"
+            [class.active]="isActiveBtn === Contacts._id"
+            (click)="getContactByID(Contacts._id)"
+          >
+            <div>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0jSJSY-UXziNAd6M7oaBV4k770RJ4W5opQ&s"
+                alt=""
+                class="w-10 rounded-full"
+              />
+            </div>
+            <div>
+              <h1 class="font-bold">
+                {{ Contacts.userName }}
+              </h1>
+              <p>{{ Contacts.Title }}</p>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      <!-- //Content of Contact// -->
+      @if (ContactByID) {
+      <div class="mx-10 w-full">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-5">
+              <div>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0jSJSY-UXziNAd6M7oaBV4k770RJ4W5opQ&s"
+                  alt=""
+                  class="w-14 rounded-full"
+                />
+              </div>
+              <div>
+                <h1 class="font-bold">{{ ContactByID.userName }}</h1>
+                <p>{{ ContactByID.Title }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div>
+              <img
+                src="icons8-favourite-24.png"
+                alt="fav icon.png"
+                class="cursor-pointer hover:bg-[#aaa] rounded-lg"
+              />
+            </div>
+            <div>
+              <img
+                src="icons8-edit-50.png"
+                alt="edit.png"
+                class="w-6 cursor-pointer hover:bg-[#aaa] rounded-lg"
+              />
+            </div>
+            <div>
+              <img
+                src="icons8-menu-50.png"
+                alt="menu.png"
+                class="w-6 cursor-pointer hover:bg-[#aaa] rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="bg-white w-full rounded-xl p-4 my-5">
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-green-500 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-phone-40.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Phone }}</h1>
+              <p>Phone</p>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-gray-500 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-phone-50.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Secodary_Phone }}</h1>
+              <p>Secodary Phone</p>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-violet-500 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-email-48.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Personal_Email }}</h1>
+              <p>Personal Email</p>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-amber-700 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-bag-100.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Company_Email }}</h1>
+              <p>Company Email</p>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-red-500 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-location-80.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Address }}</h1>
+              <p>Address</p>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <div class="flex items-center gap-5">
+            <div
+              class="bg-blue-500 w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="icons8-website-48.png" alt="phone.png" class="w-5" />
+            </div>
+            <div>
+              <h1>{{ ContactByID.Website }}</h1>
+              <p>Website</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      } @else {
+      <div
+        class="mx-10 w-full flex flex-col justify-center items-center h-[34pc]"
+      >
+        <h1 class="font-bold text-2xl">You Don't Have any information</h1>
+        <p class="font-bold my-10">Please Click your Contact</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+<!-- Add Contact -->
+<app-add-contact />
