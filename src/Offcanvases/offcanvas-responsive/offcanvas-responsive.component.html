@@ -20,6 +20,7 @@
       <div
         class="cursor-pointer my-1 w-fit flex flex-col"
         (click)="onCLick(sidebar.id)"
+        (click)="sidebar.EventHandler()"
       >
         <img [src]="sidebar.image" alt="home.png" class="w-7" />
         <p
